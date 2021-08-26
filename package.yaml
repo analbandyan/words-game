@@ -1,0 +1,49 @@
+name:                words-game
+version:             0.1.0.0
+github:              "analbandyan/words-game"
+author:              "Ashot Nalbandyan"
+maintainer:          "ashot.nalbandyan@gmail.com"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Practice
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/analbandyan/words-game#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- containers
+- random
+
+library:
+  source-dirs: src
+
+executables:
+  words-game-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - words-game
+
+tests:
+  words-game-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - words-game
+    - hspec
